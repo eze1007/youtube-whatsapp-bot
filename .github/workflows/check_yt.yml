@@ -20,4 +20,11 @@ jobs:
         run: pip install requests twilio
 
       - name: Esegui script
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          TWILIO_SID: ${{ secrets.TWILIO_SID }}
+          TWILIO_TOKEN: ${{ secrets.TWILIO_TOKEN }}
+          TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
+          NUMERO_DEST: ${{ secrets.NUMERO_DEST }}
         run: python check_yt.py
