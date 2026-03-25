@@ -1,14 +1,14 @@
 import requests
 from twilio.rest import Client
 
-# --- CREDENZIALI ---
-YT_API_KEY = "AIzaSyCdiP8wjd-QCjP7zLr3ev6U6c8OqSJ7Ciw"
-CHANNEL_ID = "UCwSlaSn1zyQDKBRij3qZbOA"
-TWILIO_SID = "AC03c8f0302659ad355d599baf3d5e4d13"
-TWILIO_TOKEN = "32b183dabb43a253337b03ddc5ac6ff5"
-TWILIO_NUMBER = "whatsapp:+14155238886"
-NUMERO_DEST = "whatsapp:+393517273999"
+import os
 
+YT_API_KEY = os.environ["YT_API_KEY"]
+CHANNEL_ID = os.environ["CHANNEL_ID"]
+TWILIO_SID = os.environ["TWILIO_SID"]
+TWILIO_TOKEN = os.environ["TWILIO_TOKEN"]
+TWILIO_NUMBER = os.environ["TWILIO_NUMBER"]
+NUMERO_DEST = os.environ["NUMERO_DEST"]
 def get_ultimo_video():
     url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&channelId={CHANNEL_ID}&order=date&maxResults=1&key={YT_API_KEY}"
     r = requests.get(url).json()
